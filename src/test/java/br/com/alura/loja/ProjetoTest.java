@@ -2,7 +2,10 @@ package br.com.alura.loja;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
@@ -22,21 +25,37 @@ public class ProjetoTest {
 	public void startaServidor() {
 		server = Servidor.inicializaServidor();
 	}
-	
+
 	@After
 	public void mataServidor() {
 		server.stop();
 	}
-	
+
 	@Test
 	public void testaQueBuscarUmProjetoTrazOProjetoEsperado() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:8080");
 		String conteudo = target.path("/projetos/1").request().get(String.class);
-		
+
 		Projeto projeto = (Projeto) new XStream().fromXML(conteudo);
-		
+
 		Assert.assertEquals("Minha loja", projeto.getNome());
+	}
+
+	@Test
+	public void testaQueSuportaNovosProjetos() {
+		Projeto projeto = new Projeto(0, "Novo Projeto", 2018);
+
+		String xml = projeto.toXml();
+
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target("http://localhost:8080");
+
+		Entity<String> entity = Entity.entity(xml, MediaType.APPLICATION_XML);
+		
+		Response response = target.path("/projetos").request().post(entity);
+
+		Assert.assertEquals("<status>sucesso</status>", response.readEntity(String.class));
 	}
 
 }
