@@ -1,5 +1,8 @@
 package br.com.alura.loja.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
@@ -8,8 +11,11 @@ public class Projeto {
 	private long id;
 	private String nome;
 	private int anoDeInicio;
+	// somente teste; apagar
+	private List<Projeto> projetos = new ArrayList<>();
 
-	public Projeto() {}
+	public Projeto() {
+	}
 
 	public Projeto(long id, String nome, int anoDeInicio) {
 		this.id = id;
@@ -32,7 +38,7 @@ public class Projeto {
 	public int getAnoDeInicio() {
 		return anoDeInicio;
 	}
-	
+
 	public String toXml() {
 		return new XStream().toXML(this);
 	}

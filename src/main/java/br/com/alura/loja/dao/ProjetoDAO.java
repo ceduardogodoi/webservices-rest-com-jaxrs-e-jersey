@@ -19,6 +19,7 @@ public class ProjetoDAO {
 	public void adiciona(Projeto projeto) {
 		long id = contador.incrementAndGet();
 		projeto.setId(id);
+
 		banco.put(id, projeto);
 	}
 
