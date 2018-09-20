@@ -3,9 +3,15 @@ package br.com.alura.loja.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Projeto {
 
 	private long id;
@@ -14,8 +20,7 @@ public class Projeto {
 	// somente teste; apagar
 	private List<Projeto> projetos = new ArrayList<>();
 
-	public Projeto() {
-	}
+	public Projeto() {}
 
 	public Projeto(long id, String nome, int anoDeInicio) {
 		this.id = id;
