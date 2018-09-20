@@ -1,8 +1,5 @@
 package br.com.alura.loja.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,8 +14,6 @@ public class Projeto {
 	private long id;
 	private String nome;
 	private int anoDeInicio;
-	// somente teste; apagar
-	private List<Projeto> projetos = new ArrayList<>();
 
 	public Projeto() {}
 

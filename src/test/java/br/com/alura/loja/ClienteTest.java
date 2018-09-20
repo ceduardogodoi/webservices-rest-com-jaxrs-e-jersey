@@ -51,7 +51,7 @@ public class ClienteTest {
 		Carrinho carrinho = new Carrinho();
 		carrinho.adiciona(new Produto(314L, "Microfone", 999, 1));
 		carrinho.setRua("Rua Vergueiro 3185");
-		carrinho.setCidade("Sao Paulo");
+//		carrinho.setCidade("Sao Paulo");
 
 		target = client.target("http://localhost:8080");
 

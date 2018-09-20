@@ -17,7 +17,7 @@ public class Carrinho {
 
 	private List<Produto> produtos = new ArrayList<Produto>();
 	private String rua;
-	private String cidade;
+//	private String cidade;
 	private long id;
 	
 	public Carrinho() {}
@@ -29,7 +29,7 @@ public class Carrinho {
 
 	public Carrinho para(String rua, String cidade) {
 		this.rua = rua;
-		this.cidade = cidade;
+//		this.cidade = cidade;
 		return this;
 	}
 
@@ -46,9 +46,9 @@ public class Carrinho {
 		this.rua = rua;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+//	public void setCidade(String cidade) {
+//		this.cidade = cidade;
+//	}
 
 	public long getId() {
 		return id;
